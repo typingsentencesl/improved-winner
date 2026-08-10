@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\Core\ImGui\DirectX\Lib\x64;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;.\Core\ImGui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Core\ImGui\DirectX\Include;.\Core\ImGui\DirectX\Lib\x64;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;.\Core\ImGui</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
     </ClCompile>
