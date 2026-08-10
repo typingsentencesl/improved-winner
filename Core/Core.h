@@ -1748,7 +1748,6 @@ void EntityUpdate() {
         if (!Objects) continue;
 
         data->LocalPlayer = Objects->GetData()->GetLocalPlayer();
-        if (!data->LocalPlayer) continue;
 
         size_t size = Objects->GetSize();
         esp->data_temp.reserve(size);
@@ -1780,6 +1779,8 @@ void EntityUpdate() {
         }
 
         esp->player_list = esp->player_temp.empty() ? std::vector{ esp->m_player } : std::move(esp->player_temp);
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 }
     void Run() {

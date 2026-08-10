@@ -340,9 +340,22 @@ public:
 	BasePlayer* GetLocalPlayer()
 	{
 		auto entity = read<BasePlayer*>((uint64_t)this + (0x20 + (0 * 8)));
-		if (!entity) return nullptr;
+		if (entity) return entity;
 
-		return entity;
+		int32_t count = this->GetSize();
+		for (int32_t i = 0; i < count && i < 64; ++i) {
+			auto candidate = this->GetEntity(i);
+			if (!candidate) continue;
+			auto obj = candidate->GetEntityObject();
+			if (!obj) continue;
+			auto game_obj = obj->GetGameObject();
+			if (!game_obj) continue;
+			std::string buff = game_obj->GetGameBuff();
+			if (buff.find("LocalPlayer") != std::string::npos || buff.find("player.prefab") != std::string::npos) {
+				return (BasePlayer*)candidate;
+			}
+		}
+		return nullptr;
 	}
 };
 class Transform
