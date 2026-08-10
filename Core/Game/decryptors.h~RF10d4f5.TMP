@@ -1,0 +1,176 @@
+union DWSPLITTER {
+	unsigned long long full;
+	struct { unsigned long low; unsigned long high; };
+};
+
+#define LODWORD(x) ((DWSPLITTER*)&x)->low
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32) & 0xFFFFFFFF))
+#define COERCE_FLOAT(value) (*reinterpret_cast<float*>(&value))
+#define __int128 uint64_t
+#define _OWORD uint32_t
+#define _BYTE  uint8_t
+#define _WORD  uint16_t
+#define _DWORD uint32_t
+#define _QWORD uint64_t
+#define BYTEn(x, n)   (*((_BYTE*)&(x)+n))
+#define LAST_IND(x,part_type)    (sizeof(x)/sizeof(part_type) - 1)
+#define HIGH_IND(x,part_type)  LAST_IND(x,part_type)
+#define HIBYTE(x) BYTEn(x,HIGH_IND(x,_BYTE))
+#define TEST_BITD(value, bit) ((value) & (1 << (bit)))
+#define BIT_TEST(value, bit) ((value) & (1 << ((bit) & 0x1F)))
+
+inline uintptr_t Il2cppGetHandle(int32_t ObjectHandleID) {
+	uint64_t rdi_1 = ObjectHandleID >> 3;
+	uint64_t rcx_1 = (ObjectHandleID & 7) - 1;
+	uint64_t baseAddr = game->GameAssembly + O::ghandle + rcx_1 * 0x28;
+	uint32_t limit = read<uint32_t>(baseAddr + 0x10);
+	if (rdi_1 < limit) {
+		uintptr_t objAddr = read<uintptr_t>(baseAddr);
+		uint32_t bitMask = read<uint32_t>(objAddr + ((rdi_1 >> 5) << 2));
+		if (TEST_BITD(bitMask, rdi_1 & 0x1f)) {
+			uintptr_t ObjectArray = read<uintptr_t>(baseAddr + 0x8) + (rdi_1 << 3);
+			return   read<BYTE>(baseAddr + 0x14) > 1
+				? read<uintptr_t>(ObjectArray)
+				: ~read<uint32_t>(ObjectArray);
+		}
+	}
+	return 0;
+}
+
+uintptr_t BaseNetworkableKey(uintptr_t address) // client entities
+{
+	uint64_t rax = read<uint64_t>(address + 0x18);
+	uint64_t* rdx = &rax;
+	uint32_t r8d = 0x2;
+	uint32_t eax, ecx, edx;
+
+	do {
+		ecx = *(uint32_t*)rdx;
+		eax = *(uint32_t*)rdx;
+		rdx = (uint64_t*)((uint8_t*)rdx + 0x4);
+		eax = eax << 0xC;
+		ecx = ecx >> 0x14;
+		ecx = ecx | eax;
+		ecx = ecx + 0xFE328184;
+		eax = ecx;
+		ecx = ecx << 0x1B;
+		eax = eax >> 0x5;
+		eax = eax | ecx;
+		eax = eax ^ 0xF713D580;
+		*(uint32_t*)((uint8_t*)rdx - 0x4) = eax;
+		r8d = r8d + 0xFFFFFFFF;
+	} while (r8d);
+	return Il2cppGetHandle(rax);
+}
+
+// DecryptList is BaseNetWorkable2
+uint64_t DecryptList(uint64_t address) // entity list
+{
+	uint64_t rax = read<uint64_t>(address + 0x18);
+	uint64_t* rdx = &rax;
+	uint32_t r8d = 0x2;
+	uint32_t eax, ecx, edx;
+
+	do {
+		eax = *(uint32_t*)rdx;
+		ecx = *(uint16_t*)((uint8_t*)rdx + 0x2);
+		rdx = (uint64_t*)((uint8_t*)rdx + 0x4);
+		eax = eax << 0x10;
+		ecx = ecx | eax;
+		ecx = ecx + 0xA8C93D59;
+		eax = ecx;
+		ecx = ecx << 0x10;
+		eax = eax >> 0x10;
+		eax = eax | ecx;
+		eax = eax ^ 0xC551EAE4;
+		*(uint32_t*)((uint8_t*)rdx - 0x4) = eax;
+		r8d = r8d + 0xFFFFFFFF;
+	} while (r8d);
+	return Il2cppGetHandle(rax);
+}
+
+inline uint64_t DecryptPlayerInventory(uint64_t address)
+{
+	uint64_t rax = read<uint64_t>(address + 0x18);
+	uint64_t* rdx = &rax;
+	uint32_t r8d = 0x2;
+	uint32_t eax, ecx, edx;
+
+	do {
+		eax = *(uint32_t*)(rdx);
+		rdx = (uint64_t*)((uint8_t*)rdx + 0x4);
+		eax = eax + 0x6D4E8FF2;
+		ecx = eax;
+		eax = eax << 0xC;
+		ecx = ecx >> 0x14;
+		ecx = ecx | eax;
+		ecx = ecx + 0x180EC596;
+		eax = ecx;
+		ecx = ecx << 0x7;
+		eax = eax >> 0x19;
+		eax = eax | ecx;
+		*((uint32_t*)rdx - 0x1) = eax;
+		--r8d;
+	} while (r8d);
+	return Il2cppGetHandle(rax);
+}
+
+inline uint64_t DecryptPlayerEyes(uint64_t address)
+{
+	uint64_t rax = read<uint64_t>(address + 0x18);
+	uint64_t* rcx = &rax;
+	uint32_t edx = 0x2;
+	uint32_t eax, ecx;
+
+	do {
+		eax = *(uint32_t*)(rcx);
+		rcx = (uint64_t*)((uint8_t*)rcx + 0x4);
+		eax = eax - 0x752B7278;
+		eax = eax ^ 0xACD4F911;
+		eax = eax - 0x7921E579;
+		eax = eax ^ 0x851C0787;
+		*((uint32_t*)rcx - 0x1) = eax;
+		--edx;
+	} while (edx);
+	return Il2cppGetHandle(rax);
+}
+
+inline uint64_t DecryptClActiveItem(uint64_t address)
+{
+		uint64_t rsp = address;
+		uint64_t* rcx = (uint64_t*)&rsp;
+		uint32_t r8d = 0x2;
+		uint32_t eax, ecx, edx = 0;
+
+		do {
+			eax = *(uint32_t*)rcx;
+			rcx = (uint64_t*)((uint8_t*)rcx + 0x4);
+			eax = eax ^ 0x3224908A;
+			eax = eax + 0x1BD4DDDE;
+			eax = eax ^ 0x6F0AB186;
+			*(uint32_t*)((uint8_t*)rcx - 0x4) = eax;
+			edx = edx + 0xFFFFFFFF;
+		} while (r8d--);
+		return rsp;
+}
+
+std::uint32_t encrypt_value(std::uint32_t input) {
+	std::uint32_t temp1 = (input << 31) | (input >> 1);
+	std::uint32_t temp2 = temp1 + 0x267EEF74;
+	std::uint32_t temp3 = temp2 ^ 0x3829AFFB;
+	std::uint32_t result = temp3 + 0x38001986;
+	return result;
+}
+
+uint64_t EncryptFov(float value)
+{
+	uint32_t eax, ecx;
+	ecx = *(uint32_t*)&value;
+	ecx = ecx ^ 0xC560B4E2;
+	eax = ecx;
+	ecx = ecx << 0x17;
+	eax = eax >> 0x09;
+	eax = eax | ecx;
+	eax = eax ^ 0xFBCCA8E7;
+	return static_cast<uint64_t>(eax);
+}

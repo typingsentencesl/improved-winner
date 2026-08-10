@@ -1,0 +1,31 @@
+name: Build Rust External
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build Release x64
+      run: msbuild astolfo.codes.sln /p:Configuration=Release /p:Platform=x64 /m
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: astolfo-codes-x64
+        path: |
+          x64/Release/*.exe
+          astolfo.codes/x64/Release/*.exe
+        if-no-files-found: warn

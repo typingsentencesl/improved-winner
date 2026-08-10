@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="EntryPoint.cpp" />
+    <ClCompile Include="Core\ImGui\imgui.cpp">
+      <Filter>Core\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ImGui\imgui_demo.cpp">
+      <Filter>Core\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ImGui\imgui_draw.cpp">
+      <Filter>Core\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ImGui\imgui_impl_dx9.cpp">
+      <Filter>Core\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ImGui\imgui_impl_win32.cpp">
+      <Filter>Core\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ImGui\imgui_widgets.cpp">
+      <Filter>Core\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ImGui\custom.cpp">
+      <Filter>Core\ImGui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{226b7120-efba-45eb-9796-f2330345b3eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\ImGui">
+      <UniqueIdentifier>{84e7f19c-68ce-4b79-8227-e6f86a0792d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Rendering">
+      <UniqueIdentifier>{65d943ab-f9e6-4780-bacd-192d211ab7cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Protect">
+      <UniqueIdentifier>{05c27c3a-33bb-4264-8920-632e409dac91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Utils">
+      <UniqueIdentifier>{e0af258e-7d2d-427e-a250-d43e8f8b3a19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\ImGui\DirectX">
+      <UniqueIdentifier>{d7903595-bd6a-4e48-8326-1d875ae746d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Usermode">
+      <UniqueIdentifier>{a0148660-1cfb-4288-8984-376e3402b592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Game">
+      <UniqueIdentifier>{3aa66a62-e1bc-4198-a0bd-161a4e146d31}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\includes.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Rendering\Library.h">
+      <Filter>Core\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Protect\skCrypt.h">
+      <Filter>Core\Protect</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\Logger.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Rendering\Render.h">
+      <Filter>Core\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\fonts.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\icon_font.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imconfig.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imgui.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imgui_impl_dx9.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imgui_impl_win32.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imgui_internal.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imstb_rectpack.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imstb_textedit.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\imstb_truetype.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\stb_image.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\stb_image_resize.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\stb_sprintf.h">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Rendering\Bytes.h">
+      <Filter>Core\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Core.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Game\offsets.h">
+      <Filter>Core\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Game\decryptors.h">
+      <Filter>Core\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Game\classes.h">
+      <Filter>Core\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\Math.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="vars.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\custom.hpp">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\fonts.hpp">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\hotkey.hpp">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ImGui\images.hpp">
+      <Filter>Core\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lazy.hpp" />
+    <ClInclude Include="driver.hpp">
+      <Filter>Core\Usermode</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
